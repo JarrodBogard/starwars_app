@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+import Menu from "./Components/Menu";
 import Pagination from "./Components/Pagination";
 
 function App() {
@@ -7,11 +8,12 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(3);
+  const [selectedValue, setSelectedValue] = useState("people");
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const response = await fetch(`https://swapi.dev/api/people/`);
+      const response = await fetch(`https://swapi.dev/api/${selectedValue}/`);
 
       const fetchedData = await response.json();
 
@@ -20,7 +22,7 @@ function App() {
     };
 
     fetchData();
-  }, []);
+  }, [selectedValue]);
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -28,6 +30,10 @@ function App() {
 
   const paginate = (number) => {
     setCurrentPage(number);
+  };
+
+  const changeHandler = (event) => {
+    setSelectedValue(event.target.value);
   };
 
   const starWarsData = currentItems.map((element, index) => (
@@ -40,6 +46,7 @@ function App() {
 
   return (
     <div className="App">
+      <Menu selectedValue={selectedValue} changeHandler={changeHandler} />
       <ul>{starWarsData}</ul>
       <Pagination
         itemsPerPage={itemsPerPage}
