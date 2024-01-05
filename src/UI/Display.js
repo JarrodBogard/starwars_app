@@ -13,7 +13,7 @@ const Display = ({ selectedValue, items }) => {
     starWarsData = <PeopleCard items={items} />;
   }
 
-  return <ul>{starWarsData}</ul>;
+  return <ul className="list-group d-flex flex-row">{starWarsData}</ul>;
 };
 
 export default Display;

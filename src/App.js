@@ -4,6 +4,8 @@ import Menu from "./Components/Menu";
 import Display from "./UI/Display";
 import Pagination from "./Components/Pagination";
 
+import "./index.css";
+
 function App() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -42,7 +44,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <main className="h-100 d-flex flex-column justify-content-center align-items-center">
       <Menu selectedValue={selectedValue} changeHandler={changeHandler} />
       <Display selectedValue={selectedValue} items={currentItems} />
       <Pagination
@@ -50,7 +52,7 @@ function App() {
         totalItems={data.length}
         paginate={paginate}
       />
-    </div>
+    </main>
   );
 }
 

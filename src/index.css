@@ -1,0 +1,20 @@
+div#root,
+html,
+body {
+  height: 100%;
+}
+
+.list-group-item {
+  display: flex;
+  flex-direction: column;
+  margin: 4px;
+  width: 350px;
+}
+
+li h3 {
+  text-align: center;
+}
+
+li span {
+  text-align: left;
+}
