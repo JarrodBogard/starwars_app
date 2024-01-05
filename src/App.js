@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import Pagination from "./Components/Pagination";
+
 function App() {
   const [data, setData] = useState([]);
   const [isloading, setIsLoading] = useState(false);
@@ -24,6 +26,10 @@ function App() {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
 
+  const paginate = (number) => {
+    setCurrentPage(number);
+  };
+
   const starWarsData = currentItems.map((element, index) => (
     <li key={Math.random() + index}>{element.name}</li>
   ));
@@ -31,6 +37,11 @@ function App() {
   return (
     <div className="App">
       <ul>{starWarsData}</ul>
+      <Pagination
+        itemsPerPage={itemsPerPage}
+        totalItems={data.length}
+        paginate={paginate}
+      />
     </div>
   );
 }
