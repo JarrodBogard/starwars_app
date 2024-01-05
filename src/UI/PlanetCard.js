@@ -1,5 +1,4 @@
 const PlanetCard = ({ items }) => {
-  console.log(items);
   const planetItem = items.map((item, index) => (
     <div key={Math.random() + index}>
       <h3>{item.name}</h3>

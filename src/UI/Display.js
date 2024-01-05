@@ -3,8 +3,6 @@ import PlanetCard from "./PlanetCard";
 import PeopleCard from "./PeopleCard";
 
 const Display = ({ selectedValue, items }) => {
-  console.log(items);
-
   let starWarsData;
 
   if (selectedValue === "starships") {

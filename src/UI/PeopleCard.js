@@ -1,5 +1,4 @@
 const PeopleCard = ({ items }) => {
-  console.log(items);
   const peopleItem = items.map((item, index) => (
     <div key={Math.random() + index}>
       <h3>{item.name}</h3>
