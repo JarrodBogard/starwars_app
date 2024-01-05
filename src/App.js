@@ -18,9 +18,15 @@ function App() {
     fetchData();
   }, []);
 
-  console.log(data);
+  const starWarsData = data.map((element, index) => (
+    <li key={Math.random() + index}>{element.name}</li>
+  ));
 
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <ul>{starWarsData}</ul>
+    </div>
+  );
 }
 
 export default App;
