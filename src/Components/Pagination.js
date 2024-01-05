@@ -5,16 +5,18 @@ const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
     pageNumbers.push(i);
   }
 
+  const pages = pageNumbers.map((number) => (
+    <li key={number}>
+      <a href="!#" onClick={() => paginate(number)}>
+        {number}
+      </a>
+    </li>
+  ));
+
   return (
-    <ul>
-      {pageNumbers.map((number) => (
-        <li key={number}>
-          <a href="!#" onClick={() => paginate(number)}>
-            {number}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <nav>
+      <ul>{pages}</ul>
+    </nav>
   );
 };
 
