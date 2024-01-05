@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import Menu from "./Components/Menu";
+import Display from "./UI/Display";
 import Pagination from "./Components/Pagination";
 
 function App() {
@@ -36,10 +37,6 @@ function App() {
     setSelectedValue(event.target.value);
   };
 
-  const starWarsData = currentItems.map((element, index) => (
-    <li key={Math.random() + index}>{element.name}</li>
-  ));
-
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -47,7 +44,7 @@ function App() {
   return (
     <div className="App">
       <Menu selectedValue={selectedValue} changeHandler={changeHandler} />
-      <ul>{starWarsData}</ul>
+      <Display items={currentItems} />
       <Pagination
         itemsPerPage={itemsPerPage}
         totalItems={data.length}
