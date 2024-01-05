@@ -44,7 +44,7 @@ function App() {
   return (
     <div className="App">
       <Menu selectedValue={selectedValue} changeHandler={changeHandler} />
-      <Display items={currentItems} />
+      <Display selectedValue={selectedValue} items={currentItems} />
       <Pagination
         itemsPerPage={itemsPerPage}
         totalItems={data.length}
